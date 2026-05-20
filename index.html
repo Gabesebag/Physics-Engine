@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Engine</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+    }
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">Loading Physics Engine...</div>
+
+  <!-- p5.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+
+  <!-- Project scripts -->
+  <script src="Variables.js"></script>
+  <script src="Class.js"></script>
+  <script src="Player.js"></script>
+  <script src="Controls.js"></script>
+  <script src="draw.js"></script>
+  <script src="Mainsketch.js"></script>
+
+  <script>
+    window.addEventListener('load', function () {
+      const loading = document.getElementById('loading');
+      if (loading) {
+        loading.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
