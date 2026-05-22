@@ -10,18 +10,18 @@ class projectile {
 
 }
 
-class barrier {
-    constructor(position, length, angle, colour = 'black') {
+class Bucket {
+    constructor(position, wallWidth = defaultBucketwallWidth, width = 100, height = 100, colour = 'black') {
         this.pos = position;
-        this.length = length;
-        this.width = defaultBarrierWidth;
-        this.L1 = createVector(-this.width/2, -this.length/2);
-        this.L2 = createVector(-this.width/2, this.length/2);
-        this.R1 = createVector(this.width/2, -this.length/2);
-        this.R2 = createVector(this.width/2, this.length/2);
-        this.corners = [this.L1, this.L2, this.R1, this.R2];
-        this.angle = angle;
+        this.wallWidth = wallWidth;
+        this.width = width;
+        this.height = height;
         this.colour = colour;
+        this.walls = [
+            Bodies.rectangle(this.pos.x, this.pos.y, this.wallWidth, this.height, { isStatic: true }), // Left wall
+            Bodies.rectangle(this.pos.x +this.width - this.wallWidth, this.pos.y, this.wallWidth, this.height, { isStatic: true }), // Right wall
+            Bodies.rectangle(this.pos.x, this.pos.y + this.height - this.wallWidth, this.width, this.wallWidth, { isStatic: true })  // Bottom wall
+        ]
     }
 
     draw() {
