@@ -1,8 +1,8 @@
-function draw() {
-    background(30);
+// function draw() {
+//     background(30);
     
-    // Draw all barriers
-    for (let barrier of barriers) {
-        barrier.draw();
-    }
-}
+//     // Draw all barriers
+//     for (let Bucket of buckets) {
+//         Bucket.draw();
+//     }
+// }
