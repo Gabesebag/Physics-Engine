@@ -16,3 +16,9 @@ function mouseClick() {
     shooting = true;
 }
 
+if (left = true) {
+    player.x -= 5;
+}
+if (right = true) {
+    player.x += 5;
+}

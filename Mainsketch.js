@@ -27,33 +27,29 @@ function setup() {
     
     createCanvas(windowWidth, windowHeight, render.canvas);
     
-    var buckets = [
-        new Bucket(createVector(10, 300)),
-        // new Bucket(createVector(200, 300)),
-        // new Bucket(createVector(400, 300)),
-        // new Bucket(createVector(10, 200)),
+var buckets = [
+    
+	// Initialize buckets
+	//LVL 1
+	//Bucket 1
+    new Bucket(createVector(20, 170)),
+	//bucket 2
+    new Bucket(createVector(windowWidth/2 - width, 170, 10)),
+	// //Bucket 3
+    new Bucket(createVector(windowWidth - width - 35, 170)),
+	// //LVL 2
+	// //Bucket 4
+    new Bucket(createVector(windowWidth/3 - width - 40, 500)),
+	// //Bucket 5
+	 new Bucket(createVector(windowWidth - windowWidth/3 - 40, 500)),
+	// //LVL 3
+	// //Bucket 6
+	 new Bucket(createVector(20, 800)),
+	// //Bucket 7
+	 new Bucket(createVector(windowWidth/2 - width, 800)),
+	// //Bucket 8
+    new Bucket(createVector(windowWidth - width - 35, 800)),
     ]
-    
-    // Initialize buckets
-    //LVL 1
-    //Bucket 1
-    
-    //bucket 2
-    
-    //Bucket 3
-    
-    //LVL 2
-    //Bucket 4
-    
-    //Bucket 5
-    
-    //LVL 3
-    //Bucket 6
-    
-    //Bucket 7
-    
-    //Bucket 8
-    
     
     
     for (let bucket of buckets) {
@@ -63,6 +59,5 @@ function setup() {
     runner = Runner.create();
     Runner.run(runner, engine);
 	
+    
 }
-
-
