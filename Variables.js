@@ -6,8 +6,6 @@ const defaultBucketHeight = 200;
 
 let playername1 = ""
 let playername2 = ""
-
-let x = windowWidth/2;
-let y = windowHeight - 100;
+let player;
 
 

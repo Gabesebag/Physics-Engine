@@ -1,24 +1,18 @@
-let left = false
-let right = false
+function handlePlayerMovement() {
+    if (!player) return;
 
-let shooting = false;
+    const currentX = player.position.x;
+    let nextX = currentX;
 
-function keyPressed() {
-    if (keyCode === 65 && player.x >= 70) {
-        left = true;
+    // Use continuous key state to move while the key is held down
+    if ((keyIsDown(65) || keyIsDown(LEFT_ARROW)) && currentX >= 70) {
+        nextX -= 5;
     }
-    if (keyCode === 68 && player.x <= windowWidth - 70) {
-        right = true;
+    if ((keyIsDown(68) || keyIsDown(RIGHT_ARROW)) && currentX <= windowWidth - 70) {
+        nextX += 5;
     }
-}
 
-function mouseClick() {
-    shooting = true;
-}
-
-if (left = true) {
-    player.x -= 5;
-}
-if (right = true) {
-    player.x += 5;
-}
+    if (nextX !== currentX) {
+        Matter.Body.setPosition(player, { x: nextX, y: player.position.y });
+    }
+}           

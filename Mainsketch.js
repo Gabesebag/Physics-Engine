@@ -1,31 +1,40 @@
 var Engine = Matter.Engine,
     World = Matter.World,
-    Bodies = Matter.Bodies;
-    Render = Matter.Render;
-    Runner = Matter.Runner;
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
     Composite = Matter.Composite;
 
-    let world;
-    let runner, render, engine;
+let world;
+let runner, render, engine;
+ 
 
 
 function setup() {
+
+let x = windowWidth/2;
+let y = windowHeight - 100;
+
+let coulour1 = "Blue"
+let colour2 = "Red"
+
     angleMode(DEGREES);
     
     engine = Engine.create();
     world = engine.world;
+
+    const canvas = createCanvas(windowWidth, windowHeight);
+
     render = Render.create({
-        element: document.body,
+        canvas: canvas.elt,
         engine: engine,
         options: {
-            width: innerWidth,
-            height: innerHeight,
+            width: windowWidth,
+            height: windowHeight,
             wireframes: false,
         }
     });
-    
-    
-    createCanvas(windowWidth, windowHeight, render.canvas);
     
 var buckets = [
     
@@ -51,13 +60,26 @@ var buckets = [
     new Bucket(createVector(windowWidth - width - 35, 800)),
     ]
     
+    fill("White")
+    player = Bodies.circle(x, y, 30, {
+        isStatic: true,
+        render: {
+            fillStyle: "blue"
+        }
+    });
+    Composite.add(engine.world, player);
     
     for (let bucket of buckets) {
         Composite.add(engine.world, bucket.walls);
     }
+
+
     Render.run(render);
     runner = Runner.create();
     Runner.run(runner, engine);
 	
-    
+}
+
+function draw() {
+    handlePlayerMovement();
 }
