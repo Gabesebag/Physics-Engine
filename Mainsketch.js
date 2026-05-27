@@ -8,8 +8,9 @@ var Engine = Matter.Engine,
 
 let world;
 let runner, render, engine;
-let screen = startscreen;
- 
+
+let collision;
+let vanish;
 
 
 function setup() {
@@ -62,13 +63,13 @@ var buckets = [
     ]
     
     fill("White")
-    player = Bodies.circle(x, y, 30, {
+    shooter = Bodies.circle(x, y, 30, {
         isStatic: true,
         render: {
             fillStyle: "blue"
         }
     });
-    Composite.add(engine.world, player);
+    Composite.add(engine.world, shooter);
     
     for (let bucket of buckets) {
         Composite.add(engine.world, bucket.walls);
@@ -83,4 +84,7 @@ var buckets = [
 
 function draw() {
     handlePlayerMovement();
+    //Collision();
+    vanish();
+    background(220);
 }

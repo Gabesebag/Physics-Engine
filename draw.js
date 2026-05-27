@@ -22,14 +22,14 @@ function draw() {
 // // 	text("10", windowWidth - width - 35, 800)
 
 switch(screen){
-    case start
-        menu()
+    case start:
+        menu();
         break;
-    case game
-        game()
+    case game:
+        game();
         break;
-    case pause
-        pause()
+    case pause:
+        pause();
         break;
 }
 }

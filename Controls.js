@@ -1,3 +1,5 @@
+let isGamePaused = false;
+
 function handlePlayerMovement() {
     if (!player) return;
 
@@ -15,12 +17,14 @@ function handlePlayerMovement() {
     if (nextX !== currentX) {
         Matter.Body.setPosition(player, { x: nextX, y: player.position.y });
     }
-    //if tab is pressed it will pause the game an switch to the pause screen, if tab is pressed again it will unpause the game and switch back to the game screen
-    if (keyIsPressed(9) && !isGamePaused) {
-        screen = 2;
-        isGamePaused = true;
-    } else if (keyIsPressed(9) && isGamePaused) {
-        screen = 1;
-        isGamePaused = false;
-    }
 }           
+
+//if tab is pressed it will pause the game an switch to the pause screen, if tab is pressed again it will unpause the game and switch back to the game screen
+function keyIsPressed() {
+if (key ===9 && !isGamePaused) {
+    screen = 2;
+    isGamePaused = true;
+} else if (key === 9 && isGamePaused) {
+    screen = 1;
+}
+}

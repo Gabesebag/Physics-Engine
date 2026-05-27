@@ -75,7 +75,6 @@ class Bucket {
         render: { 
             fillStyle: this.colour } })  // Bottom wall
         ]
-       print("x: " + this.pos.x, "y: " + this.pos.y, "h: " + this.height, "wW: " + this.wallWidth);
     }
 
     draw() {
@@ -88,3 +87,12 @@ class Bucket {
         pop();
     }
 }
+
+class vanish {
+    constructor (x, y, width = 100, height =  defaultBucketwallWidth) 
+		this.x = x
+		this.y = y
+		this.width = width
+		this.height = height
+		
+	}
